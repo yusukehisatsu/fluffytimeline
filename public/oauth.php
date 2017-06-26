@@ -13,7 +13,7 @@ $html = '' ;
 if( isset($_GET['oauth_token']) && !empty($_GET['oauth_token']) && is_string($_GET['oauth_token']) && isset($_GET['oauth_verifier']) && !empty($_GET['oauth_verifier']) && is_string($_GET['oauth_verifier']) && isset($_SESSION['oauth_token_secret']) && !empty($_SESSION['oauth_token_secret']) && is_string($_SESSION['oauth_token_secret']) )
 {
     // アクセストークンをリクエストする
-    $data = tumblr_oauth( 'http://www.tumblr.com/oauth/access_token' , 'POST' , array( 'oauth_token' => $_GET['oauth_token'] , 'oauth_token_secret' => $_SESSION['oauth_token_secret'] , 'oauth_verifier' => $_GET['oauth_verifier']) ) ;
+    $data = tumblr_oauth( 'https://www.tumblr.com/oauth/access_token' , 'POST' , array( 'oauth_token' => $_GET['oauth_token'] , 'oauth_token_secret' => $_SESSION['oauth_token_secret'] , 'oauth_verifier' => $_GET['oauth_verifier']) ) ;
 
     // 配列に変換
     $query = get_query( $data ) ;
@@ -59,7 +59,7 @@ if( isset($_GET['oauth_token']) && !empty($_GET['oauth_token']) && is_string($_G
 else
 {
     // リクエストトークンを取得する
-    $data = tumblr_oauth( 'http://www.tumblr.com/oauth/request_token' , 'POST' ) ;
+    $data = tumblr_oauth( 'https://www.tumblr.com/oauth/request_token' , 'POST' ) ;
 
     // 取得した文字列を変換
     if( !$query = get_query( $data ) )
@@ -74,7 +74,7 @@ else
         $_SESSION['oauth_token_secret'] = rawurldecode( $query['oauth_token_secret'] ) ;
 
         // 認証画面へリダイレクト
-        header( 'Location: http://www.tumblr.com/oauth/authorize?oauth_token=' . $query['oauth_token'] ) ;
+        header( 'Location: https://www.tumblr.com/oauth/authorize?oauth_token=' . $query['oauth_token'] ) ;
     }
 }
 
