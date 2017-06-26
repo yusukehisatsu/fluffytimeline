@@ -43,7 +43,8 @@ function tumblr_oauth( $request_url='' , $method='GET' , $params_b=array() , $re
     }
 
     // リクエストボディの完成
-    $request_body = http_build_query( $params_b ) ;
+    //$request_body = http_build_query( $params_b ) ;
+    $request_body = http_build_query( $params_a ) ;
 
     // キーを作成する
     $signature_key = rawurlencode( $secret_key ) . '&' . rawurlencode( $oauth_token_secret ) ;
