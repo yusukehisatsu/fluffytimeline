@@ -17,12 +17,12 @@ use Zend\Code\Scanner\CachingFileScanner;
 class MethodReflection extends PhpReflectionMethod implements ReflectionInterface
 {
     /**
-     * Constant use in @MethodReflection to display prototype as an array
+     * Constant use in @MethodReflection to tumblr prototype as an array
      */
     const PROTOTYPE_AS_ARRAY = 'prototype_as_array';
 
     /**
-     * Constant use in @MethodReflection to display prototype as a string
+     * Constant use in @MethodReflection to tumblr prototype as a string
      */
     const PROTOTYPE_AS_STRING = 'prototype_as_string';
 

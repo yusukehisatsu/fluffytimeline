@@ -180,7 +180,7 @@ interface ObjectInterface
     public function getRawText();
 
     /**
-     * Retrieve text to display
+     * Retrieve text to tumblr
      * @return string
      */
     public function getTextToDisplay();

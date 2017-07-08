@@ -74,7 +74,10 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Timeline\Controller\Index' => 'Timeline\Controller\IndexController',
-            'Timeline\Controller\Display' => 'Timeline\Controller\DisplayController',
+            'Timeline\Controller\Facebook' => 'Timeline\Controller\FacebookController',
+            'Timeline\Controller\Twitter' => 'Timeline\Controller\TwitterController',
+            'Timeline\Controller\Tumblr' => 'Timeline\Controller\TumblrController',
+            'Timeline\Controller\Instagram' => 'Timeline\Controller\InstagramController',
         ),
     ),
     'view_manager' => array(

@@ -31,7 +31,7 @@ use Zend\View\Model\ConsoleModel;
 class RouteNotFoundStrategy extends AbstractListenerAggregate
 {
     /**
-     * Whether or not to display the reason for routing failure
+     * Whether or not to tumblr the reason for routing failure
      *
      * @var bool
      */
@@ -53,7 +53,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
     }
 
     /**
-     * Set flag indicating whether or not to display the routing failure
+     * Set flag indicating whether or not to tumblr the routing failure
      *
      * @param  bool $displayNotFoundReason
      * @return RouteNotFoundStrategy
@@ -65,7 +65,7 @@ class RouteNotFoundStrategy extends AbstractListenerAggregate
     }
 
     /**
-     * Do we display the routing failure?
+     * Do we tumblr the routing failure?
      *
      * @return bool
      */

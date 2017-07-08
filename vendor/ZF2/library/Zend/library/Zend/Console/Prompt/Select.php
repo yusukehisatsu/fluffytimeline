@@ -31,10 +31,10 @@ class Select extends Char
     /**
      * Ask the user to select one of pre-defined options
      *
-     * @param string    $promptText     The prompt text to display in console
+     * @param string    $promptText     The prompt text to tumblr in console
      * @param array     $options        Allowed options
      * @param bool      $allowEmpty     Allow empty (no) selection?
-     * @param bool      $echo           True to display selected option?
+     * @param bool      $echo           True to tumblr selected option?
      * @throws Exception\BadMethodCallException if no options available
      */
     public function __construct(

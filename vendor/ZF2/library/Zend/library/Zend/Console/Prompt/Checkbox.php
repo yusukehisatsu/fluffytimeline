@@ -43,9 +43,9 @@ final class Checkbox extends AbstractPrompt
     /**
      * Ask the user to select any number of pre-defined options
      *
-     * @param string              $promptText The prompt text to display in console
+     * @param string              $promptText The prompt text to tumblr in console
      * @param array|Transversable $options    Allowed options
-     * @param bool                $echo       True to display selected option?
+     * @param bool                $echo       True to tumblr selected option?
      */
     public function __construct($promptText = 'Please select one option (Enter to finish) ', $options = array(), $ignoreCase = true, $echo = false)
     {

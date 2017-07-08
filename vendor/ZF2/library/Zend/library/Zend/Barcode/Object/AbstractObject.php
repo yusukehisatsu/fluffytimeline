@@ -142,7 +142,7 @@ abstract class AbstractObject implements ObjectInterface
     protected $offsetLeft = null;
 
     /**
-     * Text to display
+     * Text to tumblr
      *
      * @var string
      */
@@ -618,7 +618,7 @@ abstract class AbstractObject implements ObjectInterface
     }
 
     /**
-     * Retrieve text to display
+     * Retrieve text to tumblr
      *
      * @return string
      */

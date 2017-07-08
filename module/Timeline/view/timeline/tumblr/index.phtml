@@ -1,0 +1,132 @@
+<!--index-->
+<div class="container-fluid">
+    <ul id="timeline-area">
+        <?php
+        $posts = array();
+        if ($type == 'dashboard' || $type == 'other') {
+            $posts = $response['posts'];
+        } elseif ($type == 'tag') {
+            $posts = $response;
+        } ?>
+
+        <?php if (count($posts) > 0) { ?>
+            <?php foreach ($posts as $value) { ?>
+                <li class="post tumblr-area">
+                    <a href="<?php echo($value['short_url']) ?>" target="_blank">
+                        <?php switch ($value['type']) {
+                            case'photo':
+                                ?>
+                                <p><?php echo($value['blog_name']); ?></p>
+                                <div class="img-area">
+                                    <?php foreach ($value['photos'] as $post) { ?>
+                                        <img src="<?php echo($post['original_size']['url']); ?>">
+                                    <?php } ?>
+                                </div>
+                                <p><?php if (!empty($value['trail'][0]['content'])) echo($value['trail'][0]['content']); ?></p>
+                                <p class="tag-area">
+                                    <?php foreach ($value['tags'] as $tag) { ?>
+                                        #<?php echo($tag); ?>&nbsp;
+                                    <?php } ?>
+                                </p>
+                                <?php break;
+
+                            case'text':
+                                ?>
+                                <p><?php echo($value['blog_name']); ?></p>
+                                <p><?php echo($value['title']); ?>"</p>
+                                <p><?php echo($value['body']); ?>"</p>
+                                <p class="tag-area">
+                                    <?php foreach ($value['tags'] as $tag) { ?>
+                                        #<?php echo($tag); ?>&nbsp;
+                                    <?php } ?>
+                                </p>
+                                <?php break;
+
+                            case'quote':
+                                ?>
+                                <p><?php echo($value['blog_name']); ?></p>
+                                <div class="text-area"><?php echo($value['text']); ?>"</div>
+                                <p><?php echo($value['source']); ?>"</p>
+                                <p class="tag-area">
+                                    <?php foreach ($value['tags'] as $tag) { ?>
+                                        #<?php echo($tag); ?>&nbsp;
+                                    <?php } ?>
+                                </p>
+                                <?php break;
+
+                            case'link':
+                                ?>
+                                <p><?php echo($value['blog_name']); ?></p>
+                                <div class="img-area">
+                                    <img src="<?php echo($value['link_image']); ?>">
+                                </div>
+                                <p><?php echo($value['trail'][0]['content']); ?></p>
+                                <p><?php echo($value['title']); ?></p>
+                                <p><?php echo($value['excerpt']); ?></p>
+                                <p class="tag-area">
+                                    <?php foreach ($value['tags'] as $tag) { ?>
+                                        #<?php echo($tag); ?>&nbsp;
+                                    <?php } ?>
+                                </p>
+                                <?php break;
+
+                            case'video':
+                                ?>
+                                <p><?php echo($value['blog_name']); ?></p>
+                                <div class="img-area">
+                                    <?php echo($value['player'][2]['embed_code']); ?>
+                                </div>
+                                <p><?php echo($value['trail'][0]['content']); ?></p>
+                                <p class="tag-area">
+                                    <?php foreach ($value['tags'] as $tag) { ?>
+                                        #<?php echo($tag); ?>&nbsp;
+                                    <?php } ?>
+                                </p>
+                                <?php break;
+
+                            default:
+                                ?>
+                                <p class="sorry">対応していない投稿タイプですm(_ _)m</p>
+                                <?php
+                        }
+                        ?>
+                    </a>
+                </li>
+            <?php } ?>
+            <?php if ($type != 'tag') { ?>
+                <li class="post">
+                    <p>取得した全ての投稿（20件）を表示しました</p>
+                    <div class="img-area">
+                        <form action="/timeline/tumblr" method="get">
+                            <input type="hidden" name="radio" value="<?php echo($type) ?>">
+                            <?php if ($type == 'other') { ?>
+                                <input type="hidden" name="url" value="<?php echo($response['blog']['url']) ?>">
+                            <?php } ?>
+                            <input type="hidden" name="speed" value="<?php echo($speed / 1000) ?>">
+                            <input type="hidden" name="offset" value="<?php echo($offset + 20) ?>">
+                            <button class="btn btn-primary btn-submit" type="submit">次の20件を取得</button>
+                        </form>
+                    </div>
+                </li>
+            <?php } ?>
+        <?php } else { ?>
+            <div class="post tumblr-area">
+                <p class="text-center">取得できませんでしたm(_ _)m<br/><a href="/">戻る</a></p>
+            </div>
+        <?php } ?>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    var fadetime = <?php echo($speed); ?>;
+    $(function () {
+        $("#timeline-area").find("li").hide();
+        $("#timeline-area").find("li:first").stop().fadeIn(1000);
+
+        setInterval(function () {
+            $("#timeline-area").find("li:first-child").fadeOut(1000)
+                .next("li").fadeIn(1000)
+                .end().appendTo("#timeline-area");
+        }, fadetime);
+    });
+</script>

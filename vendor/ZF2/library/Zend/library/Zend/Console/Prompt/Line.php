@@ -29,7 +29,7 @@ class Line extends AbstractPrompt
     /**
      * Ask the user for an answer (a line of text)
      *
-     * @param string    $promptText     The prompt text to display in console
+     * @param string    $promptText     The prompt text to tumblr in console
      * @param bool      $allowEmpty     Is empty response allowed?
      * @param int       $maxLength      Maximum response length
      */

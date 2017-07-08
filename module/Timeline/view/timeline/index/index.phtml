@@ -22,25 +22,60 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="/timeline/display" method="post" class="form-area form-facebook">
+            <form action="/timeline/facebook" method="post" class="form-area form-facebook">
                 <input type="submit">Get Timeline
                 <p>facebook</p>
             </form>
         </div>
         <div class="col-md-12">
-            <form action="/timeline/display" method="post" class="form-area form-twitter">
+            <form action="/timeline/twitter" method="post" class="form-area form-twitter">
                 <input type="submit">Get Timeline
                 <p>twitter</p>
             </form>
         </div>
         <div class="col-md-12">
-            <form action="/timeline/display" method="post" class="form-area form-tumblr">
-                <input type="submit">Get Timeline
-                <p>tumblr</p>
+            <form action="/timeline/tumblr" method="get" class="form-area form-tumblr">
+                <ul>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="radio" class="radio" id="tumblr-self" value="self"/>自分のタイムライン
+                        </label>
+                        <div class="conditions-area tumblr-self">
+                            <label>
+                                <input type="checkbox" id="type" name="type" value="photo">画像のみ表示
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="radio" class="radio" id="tumblr-other" value="other"/>特定のブログ
+                        </label>
+                        <div class="conditions-area tumblr-other">
+                            <input type="text" class="form-control" id="url-text" name="url" placeholder="ブログのURL">
+                        </div>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="radio" class="radio" id="tumblr-tag" value="tag"/>タグ検索
+                        </label>
+                        <div class="conditions-area tumblr-tag">
+                            <input type="text" class="form-control" id="tag-text" name="tag" placeholder="タグ">
+                        </div>
+                    </li>
+                    <li>
+                        <label class="speed-label">切り替えスピード（秒）
+                            <input type="text" name="speed" maxlength="3" class="form-control form-speed">
+                            <small>※未設定の場合は3秒になります</small>
+                        </label>
+                    </li>
+                    <li>
+                        <button class="btn btn-primary btn-submit" type="submit">タイムライン表示</button>
+                    </li>
+                </ul>
             </form>
         </div>
         <div class="col-md-12">
-            <form action="/timeline/display" method="post" class="form-area form-instagram">
+            <form action="/timeline/instagram" method="post" class="form-area form-instagram">
                 <input type="submit">Get Timeline
                 <p>instagram</p>
             </form>
@@ -72,6 +107,21 @@
             $(".form-twitter").hide(100);
             $(".form-tumblr").hide(100);
             $(".form-instagram").toggle(500);
+        });
+        $('#tumblr-self').on('change', function() {
+            $(".tumblr-tag").hide(200);
+            $(".tumblr-other").hide(200);
+            $(".tumblr-self").toggle(200);
+        });
+        $('#tumblr-other').on('change', function() {
+            $(".tumblr-self").hide(200);
+            $(".tumblr-tag").hide(200);
+            $(".tumblr-other").toggle(200);
+        });
+        $('#tumblr-tag').on('change', function() {
+            $(".tumblr-self").hide(200);
+            $(".tumblr-other").hide(200);
+            $(".tumblr-tag").toggle(200);
         });
     });
 </script>

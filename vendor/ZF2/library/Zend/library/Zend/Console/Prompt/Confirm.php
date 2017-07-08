@@ -39,7 +39,7 @@ class Confirm extends Char
     /**
      * Ask the user for a single key stroke
      *
-     * @param string    $promptText     The prompt text to display in console
+     * @param string    $promptText     The prompt text to tumblr in console
      * @param string    $yesChar        The "yes" key (defaults to Y)
      * @param string    $noChar         The "no" key (defaults to N)
      */

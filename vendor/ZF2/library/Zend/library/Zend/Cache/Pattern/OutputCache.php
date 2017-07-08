@@ -39,7 +39,7 @@ class OutputCache extends AbstractPattern
     }
 
     /**
-     * if there is a cached item with the given key display it's data and return true
+     * if there is a cached item with the given key tumblr it's data and return true
      * else start buffering output until end() is called or the script ends.
      *
      * @param  string  $key Key

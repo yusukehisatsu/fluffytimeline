@@ -41,7 +41,7 @@ class ExceptionStrategy extends AbstractListenerAggregate
     }
 
     /**
-     * Flag: display exceptions in error pages?
+     * Flag: tumblr exceptions in error pages?
      *
      * @param  bool $displayExceptions
      * @return ExceptionStrategy
@@ -53,7 +53,7 @@ class ExceptionStrategy extends AbstractListenerAggregate
     }
 
     /**
-     * Should we display exceptions in error pages?
+     * Should we tumblr exceptions in error pages?
      *
      * @return bool
      */
