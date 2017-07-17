@@ -1182,7 +1182,7 @@ class Ldap
     }
 
     /**
-     * Update LDAP registry
+     * Insert LDAP registry
      *
      * @param  string|Dn $dn
      * @param  array     $entry

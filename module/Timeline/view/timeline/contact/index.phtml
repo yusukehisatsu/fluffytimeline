@@ -1,0 +1,45 @@
+<div class="index">
+    <h1>Contact</h1>
+    <h2>バグ報告や機能追加依頼など、お気軽にどうぞ(*´∀`)</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php if (!empty($name)) { ?>
+                    <div class="alert alert-danger alert-dismissable">
+                        <?php echo($name);?>
+                    </div>
+                <?php } ?>
+                <?php if (!empty($content)) { ?>
+                    <div class="alert alert-danger alert-dismissable">
+                        <?php echo($content);?>
+                    </div>
+                <?php } ?>
+                <?php if (!empty($success)) { ?>
+                    <div class="alert alert-info alert-dismissable">
+                        <?php echo($success);?>
+                    </div>
+                <?php } ?>
+                <form action="/timeline/contact" method="post" class="contact-form-area">
+                    <ul>
+                        <li>
+                            <label for="name">お名前（必須）</label>
+                            <input type="text" name="name" id="name">
+                        </li>
+                        <li>
+                            <label for="mail">メールアドレス（任意）</label>
+                            <input type="text" name="mail" id="mail">
+                        </li>
+                        <li>
+                            <label for="content">問い合わせ内容（必須）</label>
+                            <textarea id="content" name="content" rows="10" maxlength="300"
+                                      placeholder="最大300文字まで登録可能です"></textarea>
+                        </li>
+                        <li>
+                            <button type="submit" class="btn btn-primary btn-submit">送信</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

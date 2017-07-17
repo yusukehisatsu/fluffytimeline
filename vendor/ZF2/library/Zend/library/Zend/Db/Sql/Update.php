@@ -192,7 +192,7 @@ class Update extends AbstractPreparableSql
     /**
      * __clone
      *
-     * Resets the where object each time the Update is cloned.
+     * Resets the where object each time the Insert is cloned.
      *
      * @return void
      */

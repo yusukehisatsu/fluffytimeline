@@ -11,12 +11,10 @@ namespace Timeline\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Timeline\Model\Insert;
 
 class TumblrController extends AbstractActionController
 {
-    /**
-     * @return ViewModel
-     */
     public function indexAction()
     {
         //パラメータ取得
@@ -101,6 +99,18 @@ class TumblrController extends AbstractActionController
         $array = array_merge($array, array('type' => $radio));
         $array = array_merge($array, array('offset' => $offset));
         $array = array_merge($array, array('speed' => (!empty($speed) ? $speed * 1000 : '3000')));
+
+        //履歴取得
+        $db_params = array(
+            'type' => $radio,
+            'offset' => $offset,
+            'speed' => $speed,
+            'url' => $url,
+            'tag' => $tag,
+            'photo' => $photo,
+        );
+        $insert = new Insert();
+        $result = $insert->insertTumblrHistory($db_params);
 
         //echo('<pre>');
         //var_dump($array);

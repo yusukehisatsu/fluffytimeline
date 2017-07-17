@@ -317,7 +317,7 @@ class Socket implements HttpAdapter, StreamInterface
                 $host = 'tcp://' . $host;
             }
 
-            // Update connectedTo
+            // Insert connectedTo
             $this->connectedTo = array($host, $port);
         }
     }

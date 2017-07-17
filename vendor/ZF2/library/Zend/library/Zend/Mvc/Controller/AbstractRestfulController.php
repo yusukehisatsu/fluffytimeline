@@ -248,7 +248,7 @@ abstract class AbstractRestfulController extends AbstractController
     }
 
     /**
-     * Update an existing resource
+     * Insert an existing resource
      *
      * @param  mixed $id
      * @param  mixed $data

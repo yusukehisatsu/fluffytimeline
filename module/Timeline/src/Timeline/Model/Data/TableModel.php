@@ -1,5 +1,5 @@
 <?php
-namespace Command\Model\Data;
+namespace Timeline\Model\Data;
 
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Db\TableGateway\Feature\GlobalAdapterFeature;

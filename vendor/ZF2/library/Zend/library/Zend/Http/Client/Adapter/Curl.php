@@ -230,7 +230,7 @@ class Curl implements HttpAdapter, StreamInterface
             }
         }
 
-        // Update connected_to
+        // Insert connected_to
         $this->connectedTo = array($host, $port);
     }
 

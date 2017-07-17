@@ -78,6 +78,7 @@ return array(
             'Timeline\Controller\Twitter' => 'Timeline\Controller\TwitterController',
             'Timeline\Controller\Tumblr' => 'Timeline\Controller\TumblrController',
             'Timeline\Controller\Instagram' => 'Timeline\Controller\InstagramController',
+            'Timeline\Controller\Contact' => 'Timeline\Controller\contactController',
         ),
     ),
     'view_manager' => array(
